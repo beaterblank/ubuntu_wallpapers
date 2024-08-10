@@ -1,4 +1,4 @@
-# README: Dynamic Wallpaper Utility
+# Upaper
 
 ## Overview
 
