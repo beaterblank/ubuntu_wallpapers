@@ -49,7 +49,7 @@ class Fill(FitType):
             new_width = self.width
             new_height = int(new_width / image_ratio)
 
-        image = image.resize((new_width, new_height), Image.Resampling.LANCZOS)
+        image = image.resize((new_width, new_height), Image.LANCZOS)
         x_crop = (new_width - self.width) // 2
         y_crop = (new_height - self.height) // 2
         return image.crop((x_crop, y_crop, x_crop + self.width, y_crop + self.height))
@@ -64,7 +64,7 @@ class Fit(FitType):
             Image.Image: The processed image.
         """
         image = self.image
-        image.thumbnail((self.width, self.height), Image.Resampling.LANCZOS)
+        image.thumbnail((self.width, self.height), Image.LANCZOS)
         background = Image.new('RGB', (self.width, self.height), (0, 0, 0))  # Black background
         x_offset = 0
         y_offset = 0
@@ -80,7 +80,7 @@ class Stretch(FitType):
             Image.Image: The processed image.
         """
         image = self.image
-        return image.resize((self.width, self.height), Image.Resampling.LANCZOS)
+        return image.resize((self.width, self.height), Image.LANCZOS)
 
 class Tile(FitType):
     def fit_to_size(self):
